@@ -1,5 +1,11 @@
 import { DATABASE_URL } from '@/lib/server/env';
 import { drizzle } from 'drizzle-orm/node-postgres';
-const db = drizzle(DATABASE_URL);
+import { Pool } from 'pg';
+
+const client = new Pool({
+  connectionString: DATABASE_URL,
+});
+
+const db = drizzle(client);
 
 export { db };

@@ -67,6 +67,9 @@ devDependencies:
   '@eslint/eslintrc':
     specifier: ^3
     version: 3.2.0
+  '@faker-js/faker':
+    specifier: ^9.4.0
+    version: 9.4.0
   '@types/node':
     specifier: ^20
     version: 20.17.16
@@ -82,6 +85,9 @@ devDependencies:
   drizzle-kit:
     specifier: ^0.30.2
     version: 0.30.2
+  esbuild-register:
+    specifier: ^3.6.0
+    version: 3.6.0(esbuild@0.23.1)
   eslint:
     specifier: ^9
     version: 9.19.0
@@ -822,6 +828,11 @@ packages:
     dependencies:
       '@eslint/core': 0.10.0
       levn: 0.4.1
+    dev: true
+
+  /@faker-js/faker@9.4.0:
+    resolution: {integrity: sha512-85+k0AxaZSTowL0gXp8zYWDIrWclTbRPg/pm/V0dSFZ6W6D4lhcG3uuZl4zLsEKfEvs69xDbLN2cHQudwp95JA==}
+    engines: {node: '>=18.0.0', npm: '>=9.0.0'}
     dev: true
 
   /@floating-ui/core@1.6.9:
@@ -2717,6 +2728,17 @@ packages:
     dependencies:
       debug: 4.4.0
       esbuild: 0.19.12
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /esbuild-register@3.6.0(esbuild@0.23.1):
+    resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
+    peerDependencies:
+      esbuild: '>=0.12 <1'
+    dependencies:
+      debug: 4.4.0
+      esbuild: 0.23.1
     transitivePeerDependencies:
       - supports-color
     dev: true
