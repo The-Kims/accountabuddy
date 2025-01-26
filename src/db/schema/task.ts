@@ -8,7 +8,7 @@ import {
   boolean,
   pgEnum,
 } from 'drizzle-orm/pg-core';
-import { groupTasks } from './group-task';
+import { userGeneratedGroups } from './group';
 
 // Define enum for task status
 export const taskStatusEnum = pgEnum('task_status', [
@@ -20,6 +20,7 @@ export const taskStatusEnum = pgEnum('task_status', [
 // Tasks Table
 export const tasks = pgTable('tasks', {
   id: uuid('id').primaryKey().defaultRandom(), // Use UUID for task ID
+  groupId: uuid('groupId'),
   title: varchar('title', { length: 255 }).notNull(), // Task title
   description: text('description'), // Markdown-compatible description
   dueDate: timestamp('due_date').notNull(), // Required due date
@@ -31,9 +32,11 @@ export const tasks = pgTable('tasks', {
     .$onUpdate(() => new Date()), // Auto-updated
 });
 
-// Tasks Relations
-export const tasksRelations = relations(tasks, ({ many }) => ({
-  groupTasks: many(groupTasks), // Many-to-many relationship with user-generated groups
+export const tasksRelations = relations(tasks, ({ one }) => ({
+  group: one(userGeneratedGroups, {
+    fields: [tasks.groupId],
+    references: [userGeneratedGroups.id],
+  }), // Many-to-many relationship with user-generated groups
 }));
 
 export type Tasks = typeof tasks.$inferSelect;

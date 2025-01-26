@@ -1,6 +1,6 @@
 import { relations } from 'drizzle-orm';
 import { pgTable, uuid, varchar, timestamp } from 'drizzle-orm/pg-core';
-import { groupTasks } from './group-task';
+import { tasks } from './task';
 
 // UserGeneratedGroups Table (formerly "groups")
 export const userGeneratedGroups = pgTable('user_generated_groups', {
@@ -16,7 +16,7 @@ export const userGeneratedGroups = pgTable('user_generated_groups', {
 export const userGeneratedGroupsRelations = relations(
   userGeneratedGroups,
   ({ many }) => ({
-    groupTasks: many(groupTasks), // Many-to-many relationship with tasks
+    tasks: many(tasks), // Many-to-many relationship with tasks
   })
 );
 
