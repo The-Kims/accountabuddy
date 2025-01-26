@@ -5,7 +5,6 @@ import {
   varchar,
   text,
   timestamp,
-  boolean,
   pgEnum,
 } from 'drizzle-orm/pg-core';
 import { userGeneratedGroups } from './group';
@@ -25,7 +24,6 @@ export const tasks = pgTable('tasks', {
   description: text('description'), // Markdown-compatible description
   dueDate: timestamp('due_date').notNull(), // Required due date
   status: taskStatusEnum('status').default('pending').notNull(), // Task status
-  isUrgent: boolean('is_urgent').default(false).notNull(), // Urgent flag
   createdAt: timestamp('created_at').defaultNow(), // Auto-populated
   updatedAt: timestamp('updated_at')
     .defaultNow()
