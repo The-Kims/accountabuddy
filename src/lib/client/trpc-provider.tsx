@@ -4,7 +4,7 @@ import type { QueryClient } from '@tanstack/react-query';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
 import { useState } from 'react';
-import { makeQueryClient } from '@/server/query-client';
+import { makeQueryClient } from '@/server/get-query-client';
 import superjson from 'superjson';
 import { trpcClient } from './api-client';
 import { base } from '@/lib/base-url';
