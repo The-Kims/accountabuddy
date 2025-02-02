@@ -1,3 +1,5 @@
+'use client';
+
 import { AppSidebar } from '@/components/app-sidebar';
 import {
   Breadcrumb,
@@ -13,8 +15,15 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
+import { trpcClient } from '@/lib/client/api-client';
 
 const DashboardPage = () => {
+  const { data, isLoading } = trpcClient.taskRouter.getAll.useQuery();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -47,6 +56,7 @@ const DashboardPage = () => {
           <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
         </div>
       </SidebarInset>
+      <div>{JSON.stringify(data, null, 2)}</div>
     </SidebarProvider>
   );
 };
