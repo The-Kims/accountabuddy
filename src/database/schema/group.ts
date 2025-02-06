@@ -16,7 +16,7 @@ export const userGeneratedGroups = pgTable('user_generated_groups', {
 export const userGeneratedGroupsRelations = relations(
   userGeneratedGroups,
   ({ many }) => ({
-    tasks: many(tasks), // Many-to-many relationship with tasks
+    tasks: many(tasks), // One-to-many relationship with tasks
   })
 );
 

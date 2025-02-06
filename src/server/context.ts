@@ -1,4 +1,4 @@
-import { db } from '@/db/db';
+import { db } from '@/database/db';
 import { cache } from 'react';
 
 export const createTRPCContextInner = () => {
