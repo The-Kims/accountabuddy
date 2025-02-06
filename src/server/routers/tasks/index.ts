@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { protectedProcedure, createTRPCRouter } from '@/server/trpc'; // Adjust based on your setup
-import { tasks } from '@/db/schema/task'; // Adjust path
+import { tasks } from '@/database/schema/task'; // Adjust path
 import { eq } from 'drizzle-orm';
 
 export const taskRouter = createTRPCRouter({
