@@ -11,8 +11,8 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:seed": "node -r esbuild-register ./src/db/seed/drizzle-seed.ts",
-    "db:reset": "node -r esbuild-register ./src/db/seed/drizzle-reset.ts",
+    "db:seed": "node -r esbuild-register ./src/database/seed/drizzle-seed.ts",
+    "db:reset": "node -r esbuild-register ./src/database/seed/drizzle-reset.ts",
     "docker:start": "docker compose up -d",
     "docker:reset": "docker system prune -a --volumes -f"
   },
